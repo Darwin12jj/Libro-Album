@@ -135,10 +135,18 @@ function abrirModal(libro) {
         
         flipbookInitialized = true;
         
-        // Agregar botones de navegación
+        // Agregar botones de navegación con SVG
         const navButtons = `
-            <button id="prev-btn" style="position: fixed; left: 2rem; top: 50%; transform: translateY(-50%); z-index: 1002; background: white; border: none; width: 60px; height: 60px; border-radius: 50%; font-size: 2rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s ease;">←</button>
-            <button id="next-btn" style="position: fixed; right: 2rem; top: 50%; transform: translateY(-50%); z-index: 1002; background: white; border: none; width: 60px; height: 60px; border-radius: 50%; font-size: 2rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s ease;">→</button>
+            <button id="prev-btn" class="nav-btn nav-btn-prev">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button id="next-btn" class="nav-btn nav-btn-next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         `;
         container.insertAdjacentHTML('beforeend', navButtons);
         
@@ -165,12 +173,6 @@ function abrirModal(libro) {
                 $('#flipbook').turn('next');
             }
         };
-        
-        // Hover effects
-        prevBtn.onmouseenter = () => prevBtn.style.transform = 'translateY(-50%) scale(1.1)';
-        prevBtn.onmouseleave = () => prevBtn.style.transform = 'translateY(-50%) scale(1)';
-        nextBtn.onmouseenter = () => nextBtn.style.transform = 'translateY(-50%) scale(1.1)';
-        nextBtn.onmouseleave = () => nextBtn.style.transform = 'translateY(-50%) scale(1)';
     }, 200);
 }
 
