@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposición de Libro-Álbumes</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+</head>
+<body>
+    <canvas id="cursor-canvas"></canvas>
+    
+    <header>
+        <h1>Exposición de Libro-Álbumes</h1>
+    </header>
+
+    <main>
+        <div id="libros-grid" class="libros-grid"></div>
+    </main>
+
+    <div id="modal-flipbook"></div>
+    
+    <style>
+    .flipbook-container {
+        position: relative;
+        width: 800px;
+        height: 500px;
+        perspective: 2000px;
+    }
+    
+    .flipbook-page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: white;
+        backface-visibility: hidden;
+        transition: transform 1s ease-in-out;
+        transform-style: preserve-3d;
+    }
+    
+    .flipbook-page.current {
+        transform: rotateY(0deg);
+        z-index: 2;
+    }
+    
+    .flipbook-page.next {
+        transform: rotateY(180deg);
+        z-index: 1;
+    }
+    
+    .flipbook-page.flipping-out {
+        transform: rotateY(-180deg);
+        z-index: 2;
+    }
+    
+    .flipbook-page.flipping-in {
+        transform: rotateY(0deg);
+        z-index: 2;
+    }
+    </style>
+
+    <script src="js/main.js"></script>
+    <script src="js/cursor-effect.js"></script>
+</body>
+</html>
