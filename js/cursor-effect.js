@@ -1,8 +1,12 @@
 const canvas = document.getElementById('cursor-canvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resizeCanvas() {
+    canvas.width = document.documentElement.clientWidth;
+    canvas.height = document.documentElement.clientHeight;
+}
+
+resizeCanvas();
 
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const particles = [];
@@ -128,8 +132,7 @@ function animate() {
 }
 
 window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    resizeCanvas();
 });
 
 animate();
